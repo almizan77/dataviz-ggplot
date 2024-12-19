@@ -1,0 +1,40 @@
+/* Rainbow Theme CSS */
+body {
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  color: #555;
+}
+
+a {
+  color: #ff007f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff5e00;
+  text-decoration: underline;
+}
+
+code {
+  background-color: #e0e0e0;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  overflow: auto;
+}
