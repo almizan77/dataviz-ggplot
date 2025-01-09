@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>BY:LATIF ALMIZAN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettydoc/0.1.2/html_pretty/cayman/cayman.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    body {
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+<h1>BY:LATIF ALMIZAN</h1>
+<p>Latif Almizan_A3202300022_Rekayasa perangkat Lunak_Institut Teknologi Statistika dan Bisnis Muhammadiyah</p>
+<p>`r Sys.Date()`</p>
+
+<h2>PENGANTAR GGPLOT 2</h2>
+<p>GGPLOT2 adalah library R untuk membuat grafik data secara mudah dan menarik. Library ini menggunakan pendekatan "Grammar of Graphics" yang memungkinkan pengguna membangun grafik secara bertahap sesuai kebutuhan.</p>
+<p>Dengan GGPLOT2, Anda dapat membuat berbagai jenis grafik seperti scatter plot, bar chart, atau line chart untuk memahami pola dan hubungan dalam data. Grafik yang dihasilkan juga dapat disesuaikan untuk analisis maupun presentasi.</p>
+<p>Library ini sangat fleksibel dan sering digunakan bersama alat lain dalam tidyverse. Dengan dasar-dasar ggplot2, Anda bisa menyampaikan informasi data dengan lebih jelas dan efektif.</p>
+
+<h2>DASAR-DASAR GGPLOT2 INTRODUCTION</h2>
+<p>adalah salah satu paket paling populer dalam R untuk membuat visualisasi data. Paket ini mengimplementasikan pendekatan grammar of graphics yang memungkinkan pengguna untuk membangun grafik dengan cara yang sangat fleksibel dan intuitif. Berikut adalah dasar-dasar GGplot2 yang perlu Anda ketahui:</p>
+
+<ol>
+  <li>MENGIMPOR PAKET: Anda harus mengimpor paket GGplot2 sebelum menggunakannya.
+    <pre><code class="r">library(ggplot2)</code></pre>
+  </li>
+  <li>DATA FRAME: GGplot2 bekerja dengan data frame. Pastikan data Anda dalam format data frame.
+    <pre><code class="r">data <- data.frame(x = 1:10, y = rnorm(10))</code></pre>
+  </li>
+  <li>STRUKTUR DASAR: Plot dasar dalam GGplot2 dibangun dengan fungsi ggplot(), diikuti oleh lapisan geom yang menentukan jenis plot.
+    <pre><code class="r">ggplot(data, aes(x = x, y = y)) + geom_point()</code></pre>
+  </li>
+  <li>MAPPING ESTETIK: aes() digunakan untuk mendefinisikan estetika (misalnya, x, y, warna) yang akan dipetakan ke kolom data Anda.
+    <pre><code class="r">ggplot(data, aes(x = x, y = y, color = y)) + geom_point()</code></pre>
+  </li>
+  <li>MENAMBAH LAPISAN: Anda dapat menambahkan beberapa lapisan geom untuk membuat plot yang lebih kompleks.
+    <pre><code class="r">ggplot(data, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth(method = "lm")</code></pre>
+  </li>
+  <li>PENYESUAIAN TEMA: GGplot2 menyediakan berbagai tema yang bisa digunakan untuk mengubah tampilan plot.
+    <pre><code class="r">ggplot(data, aes(x = x, y = y)) + 
+  geom_point() +
+  theme_minimal()</code></pre>
+  </li>
+</ol>
+
+<h2>CONTOH IMPLEMENTASI GGPLOT 1</h2>
+<pre><code class="r"># memanggil library
+library(ggplot2)
+# membuat data dengan base R
+data <- data.frame(x = rnorm(100), y = rnorm(100))
+# membuat scotter plot
+ggplot(data, aes(x = x, y = y)) + 
+geom_point() + 
+labs(title = "Plot Titik", x = "Sumbu X", y = "Sumbu Y") +
+theme_dark()</code></pre>
+
+<p>Pada contoh di atas, ggplot() digunakan untuk menginisialisasi plot, aes() menentukan pemetaan estetika (sumbu x dan y), geom_point() menambahkan titik-titik ke plot, labs() menambahkan judul dan label sumbu, dan theme_minimal() menerapkan tema minimalis.</p>
+
+<h2>Contoh penggunaan ggplot 2</h2>
+<pre><code class="r">library(readr)
+lizard <- read_csv("lizards.csv")
+View(lizard)</code></pre>
+
+<h2>Contoh penggunaan ggplot 3</h2>
+<pre><code class="r">ggplot(lizard, aes(x = total_length , y = weight)) + 
+geom_point() +
+labs(title = "Plot Titik", x = "total_length" , y = "weight" )</code></pre>
+
+<h2>Contoh penggunaan ggplot 4</h2>
+<pre><code class="r">ggplot(lizard, aes(x = total_length , y = common_name)) + 
+geom_jitter() +
+labs(title = "Plot Titik", x = "total_length" , y = "common_name" )</code></pre>
+
+<h2>Contoh penggunaan ggplot 5</h2>
+<pre><code class="r">ggplot(lizard, aes(x = total_length)) + 
+geom_histogram() +
+labs(title = "Plot histogram", x = "total_length" )</code></pre>
+
+<h2>Contoh penggunaan ggplot 6</h2>
+<pre><code class="r">ggplot(lizard, aes( , y = common_name)) + 
+geom_bar() +
+labs(title = "Plot Bar",  , y = "common_name" )</code></pre>
+
+<h2>Contoh penggunaan ggplot 7</h2>
+<pre><code class="r">ggplot(lizard, aes(x = weight)) + 
+geom_histogram(colour = "blue", fill = "purple", size = 2, linetype = "dotted") +
+labs(title = "Plot Histogram Berwarna", x = "weight" )</code></pre>
+
+<h2>Contoh penggunaan ggplot 8</h2>
+<pre><code class="r">ggplot(lizard, aes(x = total_length , y = weight)) + 
+geom_point(colour = "red", shape = 21, size = 4) +
+labs(title = "Plot Titik", x = "total_length" , y = "weight" )</code></pre>
+
+<h2>Contoh penggunaan ggplot 9</h2>
+<pre><code class="r">ggplot(lizard, aes(x = total_length, y = weight, color = common_name, size = total_length)) + 
+  geom_point(shape = 19) + 
+  labs(title = "Plot Titik", x = "total_length", y = "weight") +
+  theme_minimal()</code></pre>
+
+</body>
+</html>
