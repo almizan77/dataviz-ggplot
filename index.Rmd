@@ -1,6 +1,6 @@
 ---
 title: "Visualisasi Data dengan GGPLOT2"
-author: "Mizan - Institut Teknologi Statistika dan Bisnis Muhammadiyah"
+author: "Latif Almizan - Institut Teknologi Statistika dan Bisnis Muhammadiyah"
 date: "`r Sys.Date()`"
 output: 
   html_document:
