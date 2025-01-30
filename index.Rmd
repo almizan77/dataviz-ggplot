@@ -1,82 +1,266 @@
 ---
-title: "Visualisasi Data dengan GGPLOT2"
+title: "VISUALISASI DATA DENGAN GGPLOT2"
 author: "Latif Almizan - Institut Teknologi Statistika dan Bisnis Muhammadiyah"
 date: "`r Sys.Date()`"
 output: 
   html_document:
     theme: united
-    higlight: tango
-    css: style.css
+    highlight: tango
+    css: styles.css
     toc: true
     toc_float:
       collapsed: true
     df_print: paged
 bibliography: references.bib
 ---
-
 ---
-title: "BY:LATIF ALMIZAN"
-author: "Latif Almizan_A3202300022_Rekayasa perangkat Lunak_Institut Teknologi Statistika dan Bisnis Muhammadiyah"
+title: "VISUALISASI DATA DENGAN GGPLOT2"
+author: "Latif Almizan"
 date: "`r Sys.Date()`"
-output:
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
-bibliography: references.bib
+output: html_document
 ---
+## PENGANTAR GGPLOT2
 
----
+Introduction to ggplot2
+ggplot2 is one of the most popular packages for data visualization in the R programming language. This package allows us to create various types of plots easily and flexibly using the concept of Grammar of Graphics.
+
+1. Grammar of Graphics
+The main concept of ggplot2 is the Grammar of Graphics, which enables the creation of plots by combining layers of visual components. Plots are built step by step by adding various visual elements such as points, lines, or areas.
+
+2. Basic Structure of ggplot2
+The basic structure of ggplot2 syntax is as follows:
 
 
+ggplot(data, aes(x, y)) + geom_type()
+
+data: A data frame that contains the data you want to visualize.
+aes: Aesthetics that determine the mapping of variables to visual elements.
+geom_type(): Geom function that specifies the type of plot (e.g., geom_point() for scatter plots, geom_line() for line plots).
+
+3. Aesthetics (aes)
+Aesthetics are used to determine how variables in the data will be mapped to visual elements:
 
 
-# PENGANTAR GGPLOT 2
+ggplot(data, aes(x = variable_x, y = variable_y))
 
-GGPLOT2 adalah library R untuk membuat grafik data secara mudah dan menarik. Library ini menggunakan pendekatan "Grammar of Graphics" yang memungkinkan pengguna membangun grafik secara bertahap sesuai kebutuhan.
+These variables can be mapped to the x-axis, y-axis, color, size, and shape.
 
-Dengan GGPLOT2, Anda dapat membuat berbagai jenis grafik seperti scatter plot, bar chart, atau line chart untuk memahami pola dan hubungan dalam data. Grafik yang dihasilkan juga dapat disesuaikan untuk analisis maupun presentasi.
+4. Geoms
+Geoms are the types of plots used in ggplot2. Some examples of geom functions are:
 
-Library ini sangat fleksibel dan sering digunakan bersama alat lain dalam tidyverse. Dengan dasar-dasar ggplot2, Anda bisa menyampaikan informasi data dengan lebih jelas dan efektif.
+geom_point(): For scatter plots.
 
-## DASAR-DASAR GGPLOT2 INTRODUCTION
+geom_line(): For line plots.
 
-adalah salah satu paket paling populer dalam R untuk membuat visualisasi data. Paket ini mengimplementasikan pendekatan grammar of graphics yang memungkinkan pengguna untuk membangun grafik dengan cara yang sangat fleksibel dan intuitif.
-Berikut adalah dasar-dasar GGplot2 yang perlu Anda ketahui:
+geom_bar(): For bar plots.
 
-1.MENGIMPOR PAKET: Anda harus mengimpor paket GGplot2 sebelum menggunakannya.
-```
-  library(ggplot2)
-```
-2.DATA FRAME: GGplot2 bekerja dengan data frame. Pastikan data Anda dalam format data frame.
-```
-  data <- data.frame(x = 1:10, y = rnorm(10))
-```
+5. Basic Example
+Here is a basic example of creating a scatter plot using ggplot2:
+<!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->
 
-3.STRUKTUR DASAR: Plot dasar dalam GGplot2 dibangun dengan fungsi ggplot(), diikuti oleh lapisan geom yang menentukan jenis plot.
-```
-  ggplot(data, aes(x = x, y = y)) + geom_point()
-```
 
-4.MAPPING ESTETIK: aes() digunakan untuk mendefinisikan estetika (misalnya, x, y, warna) yang akan dipetakan ke kolom data Anda.
-```
-  ggplot(data, aes(x = x, y = y, color = y)) + geom_point()
-```
+# Load the ggplot2 package
+library(ggplot2)
+<!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->
 
-5.MENAMBAH LAPISAN: Anda dapat menambahkan beberapa lapisan geom untuk membuat plot yang lebih kompleks.
-```
-  ggplot(data, aes(x = x, y = y)) +
+# Create a scatter plot
+ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point() +
-  geom_smooth(method = "lm")
-```
+  labs(title = "Scatter Plot of Weight vs. MPG",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon")
 
-6.PENYESUAIAN TEMA: GGplot2 menyediakan berbagai tema yang bisa digunakan untuk mengubah tampilan plot.
-```
-  ggplot(data, aes(x = x, y = y)) + 
-  geom_point() +
+This example uses the mtcars dataset to create a scatter plot of car weight against miles per gallon (MPG).
+
+6. Plot Customization
+ggplot2 allows you to customize your plots as needed:
+
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Custom Scatter Plot",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon") +
   theme_minimal()
+
+This example shows how to change the color and size of the points, add titles and labels, and apply a minimal theme.
+
+7. Additional Resources
+To learn more about ggplot2, here are some resources you can utilize:
+
+* ggplot2 book
+* R for Data Science
+* ggplot2 documentation
+<!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->
+## INTRODUCTION GGPLOT 2
+Pengantar ggplot2
+ggplot2 adalah paket visualisasi data yang sangat kuat dalam ekosistem R. Paket ini memungkinkan pengguna untuk membuat grafik yang indah dan informatif dengan mudah. Dibangun berdasarkan prinsip Grammar of Graphics, ggplot2 memberikan kerangka kerja yang fleksibel untuk menghasilkan visualisasi data yang mendalam.
+
+1.Konsep Utama
+Grammar of Graphics: Ini adalah konsep inti di balik ggplot2 yang memungkinkan pembuatan grafik melalui kombinasi lapisan-lapisan komponen visual. Setiap grafik dapat dibangun dari beberapa lapisan yang menggambarkan data dengan cara tertentu.
+
+2.Aesthetics (aes): Aesthetics mendefinisikan bagaimana data dipetakan ke elemen-elemen visual, seperti posisi x dan y, warna, ukuran, dan bentuk. Misalnya:
+```
+ggplot(data, aes(x = variabel_x, y = variabel_y, color = variabel_warna))
+
+```
+Di sini, variabel_x dan variabel_y dipetakan ke sumbu x dan y, sementara variabel_warna dipetakan ke warna elemen grafik.
+
+3.Geoms: Geoms adalah elemen grafis yang digunakan untuk menggambarkan data. Contoh geom termasuk:
+*geom_point(): Untuk membuat scatter plot.
+*geom_line(): Untuk membuat line plot.
+*geom_bar(): Untuk membuat bar plot.
+
+Struktur Dasar ggplot2
+Struktur dasar dari sintaks ggplot2 adalah sebagai berikut:
+```
+ggplot(data, aes(x, y)) + geom_type()
+
+```
+*data: Data frame yang berisi data yang ingin divisualisasikan.
+*aes: Aesthetics yang menentukan pemetaan variabel ke elemen visual.
+*geom_type(): Fungsi geom yang menentukan jenis grafik (misalnya, geom_point() untuk scatter plot, geom_line() untuk line plot).
+
+Contoh Dasar
+Berikut adalah contoh dasar pembuatan scatter plot menggunakan ggplot2:
+```
+# Memuat paket ggplot2
+library(ggplot2)
+# Membuat scatter plot
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(title = "Scatter Plot Berat vs. MPG",
+       x = "Berat (1000 lbs)",
+       y = "Mil per Galon")
+
 ```
 
-## CONTOH IMPLEMENTASI GGPLOT 1
+Contoh ini menggunakan dataset mtcars untuk membuat scatter plot yang memvisualisasikan hubungan antara berat mobil dan konsumsi bahan bakar (MPG).
+
+Kustomisasi Grafik
+
+ggplot2 memungkinkan kustomisasi grafik secara mendalam. Berikut adalah contoh kustomisasi:
+```
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  labs(title = "Custom Scatter Plot",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon",
+       color = "Cylinders") +
+  theme_minimal()
+  
+```
+Pada contoh ini, warna titik ditentukan berdasarkan jumlah silinder, ukuran titik diperbesar, dan tema minimal diterapkan.
+
+Layering dalam ggplot2
+
+ggplot2 memungkinkan penambahan lapisan-lapisan tambahan untuk meningkatkan kompleksitas dan detail grafik. Contohnya:
+
+```
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(aes(color = factor(cyl))) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Scatter Plot with Regression Line",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon",
+       color = "Cylinders") +
+  theme_classic()
+
+```
+Pada contoh ini, sebuah garis regresi linear ditambahkan untuk menunjukkan tren data.
+
+Sumber Daya Tambahan
+
+Untuk mempelajari lebih lanjut tentang ggplot2, Anda dapat merujuk pada sumber daya berikut:
+
+*Buku ggplot2
+*R for Data Science
+*Dokumentasi ggplot2
+<!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->
+
+## DASAR-DASAR MATERI GGPLOT2
+ggplot2 adalah paket visualisasi data yang sangat kuat dan populer dalam bahasa pemrograman R. Paket ini memanfaatkan konsep Grammar of Graphics untuk memudahkan pembuatan grafik yang kompleks dan menarik.
+
+1. Instalasi ggplot2
+Sebelum menggunakan ggplot2, Anda perlu menginstalnya terlebih dahulu. Gunakan perintah berikut untuk instalasi:
+```
+install.packages("ggplot2")
+
+```
+Kemudian, muat paketnya dengan:
+```
+library(ggplot2)
+
+```
+2. Struktur Dasar ggplot2
+Struktur dasar dari sintaks ggplot2 adalah sebagai berikut:
+```
+ggplot(data, aes(x, y)) + geom_type()
+
+```
+*data: Data frame yang berisi variabel yang ingin divisualisasikan.
+*aes: Aesthetics yang menentukan pemetaan variabel ke elemen visual.
+*geom_type(): Fungsi geom yang menentukan jenis grafik, seperti geom_point() untuk scatter plot atau geom_line() untuk line plot.
+
+3.Aesthetics (aes)
+*Memetakan variabel ke elemen visual (x, y, warna, ukuran).
+*Contoh: aes(x = variabel_x, y = variabel_y)
+
+4.Geoms
+*geom_point(): Scatter plot
+*geom_line(): Line plot
+*geom_bar(): Bar plot
+
+5.Contoh Dasar
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(title = "Scatter Plot Berat vs. MPG",
+       x = "Berat (1000 lbs)",
+       y = "Mil per Galon")
+6.Kustomisasi
+```
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Custom Scatter Plot",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon") +
+  theme_minimal()
+
+```
+7.Menambahkan Lapisan
+```
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(aes(color = factor(cyl))) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Scatter Plot with Regression Line",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon",
+       color = "Cylinders") +
+  theme_classic()
+
+```
+<!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->
+## Read Data
+untuk membuat grafik ggplot2 di rstudio, hal pertama yang harus dilakukan adalah memanggil data yang akan dibuat grafik. cara untuk melakukannya adalah dengan memanggil data tersebut dengan skrip. Berikut adalah cara untuk memanggil/membaca data: 
+11brary(readr)
+library(gapminder)
+11brary(ggplot2)
+library(gganimate)
+library(gifski)
+iris_iris <- read_csv("iris-iris.csv", show_col_types = FALSE) 
+lizards <- read_csv("lizards.csv, show_col_types = FALSE)
+
+data=gapminder
+
+Kita juga dapat memanggil semua library dalam satu chunk dan kita dapat menggunakannya berulang kali tanpa perlu memanggilnya lagi.
+
+Dengan cara diatas, kita menggunakan library(readr) untuk menggunakan library, kemudian kita menuliskan nama alias dilanjutkan dengan simbol "<-", kemudian menuliskan fungsi yang ada didalam library readr yang bernama read_csv. read_csv digunakan untuk membaca file yang berformat.csv. Didalam kurung kita mengisikan nama file tersebut yang mana disini nama file tersebut adalah "iris iris.csv" dan "lizards.csv". lalu kita mengisikan show_col_types = FALSE dan dibatasi dengan tanda koma. Ini berfungsi tidak menampilkan message dibawah kode kita.
+
+Untuk kode "data-gapminder" kita membuat nama variabel dengan nama "data" dan mendefinisikan valuenya dengan gapminder. gapminder adalah build-in data yang ada didalam library "gapminder" yang isinya adalah tabel tabel seperti file .csv pada umumnya. dengan data gapminder kita bisa membuat grafik yang memiliki animasi.
+<!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->262
+1 Space
+## CONTOH IMPLEMENTASI GGPLOT 2
+Chunk
 ```{r}
 # memanggil library
 library(ggplot2)
@@ -88,63 +272,153 @@ geom_point() +
 labs(title = "Plot Titik", x = "Sumbu X", y = "Sumbu Y") +
 theme_dark()
 ```
-
-
-
+DESKRIPSINYA
 Pada contoh di atas, ggplot() digunakan untuk menginisialisasi plot, aes() menentukan pemetaan estetika (sumbu x dan y), geom_point() menambahkan titik-titik ke plot, labs() menambahkan judul dan label sumbu, dan theme_minimal() menerapkan tema minimalis.
+Chunk 
+```{r}
+# Membuat data dengan base R
+data <- data.frame(
+  x = rnorm(100), 
+  y = rnorm(100), 
+  grup = sample(c("A", "B", "C", "D"), 100, replace = TRUE)
+)
 
+# Membuat scatter plot dengan warna berbeda setiap grupnya
+library(ggplot2)
+
+ggplot(data, aes(x = x, y = y, color = grup)) +
+  geom_point() +
+  facet_wrap(~ grup) +
+  scale_color_manual(values = c("A" = "green", "B" = "red", "C" = "blue", "D" = "purple"))
+```
+SESKRIPSI
+Dalam contoh tersebut, fungsi ggplot() digunakan untuk menginisialisasi plot dengan data dan pemetaan estetika (aesthetic mapping) melalui ses). Pemetaan estetika ini menentukan bagaimana variabel data seperti sumbu x dan y akan ditampilkan pada grafik. Fungsi geom point() menambahkan lapisan geometri untuk menggambar titik-titik pada scatter plot, yang merupakan elemen utama dalam visualisasi ini. Fungsi-fungsi ini bekerja bersama secara modular, memungkinkan pengguna untuk membangun plot sesuai kebutuhan secara bertahap.
+
+Selain itu, fungsi labs() digunakan untuk menambahkan judul grafik, label sumbu x, dan label sumbu y, sehingga visualisasi menjadi lebih informatif. Untuk meningkatkan tampilan, theme minimal() diterapkan untuk memberikan gaya minimalis pada grafik, menghilangkan elemen visual yang tidak diperlukan dan menonjolkan data utama. Dengan kombinasi fungsi-fungsi ini, ggplot2 memungkinkan pengguna membuat grafik yang tidak hanya menarik tetapi juga jelas dan mudah dipahami.
+<!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->
 ### Contoh penggunaan ggplot 2
 ```{r}
+# Memuat paket readr
 library(readr)
-lizard <- read_csv("lizards.csv")
-```
 
+# Membaca file CSV
+lizard <- read_csv("lizards.csv", show_col_types = FALSE)
+```
 ### Contoh penggunaan ggplot 3
+Ch
 ```{r}
 ggplot(lizard, aes(x = total_length , y = weight)) + 
 geom_point() +
 labs(title = "Plot Titik", x = "total_length" , y = "weight" )
 ```
-
 ### Contoh penggunaan ggplot 4
+Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length , y = common_name)) + 
 geom_jitter() +
 labs(title = "Plot Titik", x = "total_length" , y = "common_name" )
 ```
-
 ### Contoh penggunaan ggplot 5
+Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length)) + 
 geom_histogram() +
 labs(title = "Plot histogram", x = "total_length" )
 ```
-
 ### Contoh penggunaan ggplot 6
+Chunk
 ```{r}
 ggplot(lizard, aes( , y = common_name)) + 
 geom_bar() +
 labs(title = "Plot Bar",  , y = "common_name" )
 ```
-
 ### Contoh penggunaan ggplot 7
+Chunk
 ```{r}
 ggplot(lizard, aes(x = weight)) + 
 geom_histogram(colour = "blue", fill = "yellow", size = 2, linetype = "dotted") +
 labs(title = "Plot Histogram Berwarna", x = "weight" )
 ```
-
 ### Contoh penggunaan ggplot 8
+Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length , y = weight)) + 
 geom_point(colour = "red", shape = 21, size = 4) +
 labs(title = "Plot Titik", x = "total_length" , y = "weight" )
 ```
-
 ### Contoh penggunaan ggplot 9
+Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length, y = weight, color = common_name, size = total_length)) + 
   geom_point(shape = 19) + 
   labs(title = "Plot Titik", x = "total_length", y = "weight") +
   theme_minimal()
 ```
+Chunk doang
+```{r}
+library (gapminder)
+library (ggplot2)
+library (gganimate)
+```
+Chunk doang
+```{r}
+library(gapminder)
+data=gapminder
+data
+```
+Chunk tok
+```{r}
+library(gapminder)
+library(ggplot2)
+gapminder_plot <- ggplot(
+  gapminder, 
+  aes(x = gdpPercap, y=lifeExp)
+  ) +
+  geom_point(alpha = 0.6) +
+  scale_x_log10() +
+  labs(x = "GDP per capita", y = "Life expectancy")
+gapminder_plot
+```
+Chunk tok
+```{r}
+gapminder_plot <- ggplot(
+  gapminder, 
+  aes(x = gdpPercap, y=lifeExp, size = pop, colour = continent)
+  ) +
+  geom_point(alpha = 0.6) +
+  scale_x_log10() +
+  scale_color_viridis_d(option = "viridis") +
+  labs(x = "GDP per capita", y = "Life expectancy")
+gapminder_plot
+```
+```{r}
+library(ggplot2)
+library(gganimate)
+library(gifski)
+
+# Sample data, assuming 'data' includes a 'year' variable
+gapminder_plot <- ggplot(data, aes(x = gdpPercap, y = lifeExp, colour = continent, size = pop)) +
+  geom_point(shape = 7) +
+  scale_x_log10() +
+  scale_color_viridis_d(option = "cividis") +
+  labs(title = "Gapminder", x = "GDP", y = "Life Expectancy") +
+  theme(
+    panel.background = element_rect(fill = "blue"),
+    plot.background = element_rect(fill = "blue"),
+    plot.title = element_text(color = "white"),
+    axis.title.x = element_text(color = "white"),
+    axis.title.y = element_text(color = "white"),
+    axis.text = element_text(color = "white"),
+    panel.grid.major = element_line(color = "gray", size = 0.5),
+    panel.grid.minor = element_line(color = "gray", size = 0.25)
+  )
+
+# Create the animation
+animated_gapminder <- gapminder_plot + 
+  transition_time(year) + 
+  labs(title = "Gapminder: Year {frame_time}")
+
+# Render and save the animation
+animate(animated_gapminder, nframes = 100, renderer = gifski_renderer("animated_gapminder.gif"))
+```
+
