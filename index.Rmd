@@ -260,7 +260,6 @@ Untuk kode "data-gapminder" kita membuat nama variabel dengan nama "data" dan me
 <!-- Ini adalah komentar yang tidak akan ditampilkan dalam output akhir -->262
 1 Space
 ## CONTOH IMPLEMENTASI GGPLOT 2
-Chunk
 ```{r}
 # memanggil library
 library(ggplot2)
@@ -291,7 +290,6 @@ ggplot(data, aes(x = x, y = y, color = grup)) +
   facet_wrap(~ grup) +
   scale_color_manual(values = c("A" = "green", "B" = "red", "C" = "blue", "D" = "purple"))
 ```
-SESKRIPSI
 Dalam contoh tersebut, fungsi ggplot() digunakan untuk menginisialisasi plot dengan data dan pemetaan estetika (aesthetic mapping) melalui ses). Pemetaan estetika ini menentukan bagaimana variabel data seperti sumbu x dan y akan ditampilkan pada grafik. Fungsi geom point() menambahkan lapisan geometri untuk menggambar titik-titik pada scatter plot, yang merupakan elemen utama dalam visualisasi ini. Fungsi-fungsi ini bekerja bersama secara modular, memungkinkan pengguna untuk membangun plot sesuai kebutuhan secara bertahap.
 
 Selain itu, fungsi labs() digunakan untuk menambahkan judul grafik, label sumbu x, dan label sumbu y, sehingga visualisasi menjadi lebih informatif. Untuk meningkatkan tampilan, theme minimal() diterapkan untuk memberikan gaya minimalis pada grafik, menghilangkan elemen visual yang tidak diperlukan dan menonjolkan data utama. Dengan kombinasi fungsi-fungsi ini, ggplot2 memungkinkan pengguna membuat grafik yang tidak hanya menarik tetapi juga jelas dan mudah dipahami.
@@ -305,68 +303,58 @@ library(readr)
 lizard <- read_csv("lizards.csv", show_col_types = FALSE)
 ```
 ### Contoh penggunaan ggplot 3
-Ch
 ```{r}
 ggplot(lizard, aes(x = total_length , y = weight)) + 
 geom_point() +
 labs(title = "Plot Titik", x = "total_length" , y = "weight" )
 ```
 ### Contoh penggunaan ggplot 4
-Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length , y = common_name)) + 
 geom_jitter() +
 labs(title = "Plot Titik", x = "total_length" , y = "common_name" )
 ```
 ### Contoh penggunaan ggplot 5
-Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length)) + 
 geom_histogram() +
 labs(title = "Plot histogram", x = "total_length" )
 ```
 ### Contoh penggunaan ggplot 6
-Chunk
 ```{r}
 ggplot(lizard, aes( , y = common_name)) + 
 geom_bar() +
 labs(title = "Plot Bar",  , y = "common_name" )
 ```
 ### Contoh penggunaan ggplot 7
-Chunk
 ```{r}
 ggplot(lizard, aes(x = weight)) + 
 geom_histogram(colour = "blue", fill = "yellow", size = 2, linetype = "dotted") +
 labs(title = "Plot Histogram Berwarna", x = "weight" )
 ```
 ### Contoh penggunaan ggplot 8
-Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length , y = weight)) + 
 geom_point(colour = "red", shape = 21, size = 4) +
 labs(title = "Plot Titik", x = "total_length" , y = "weight" )
 ```
 ### Contoh penggunaan ggplot 9
-Chunk
 ```{r}
 ggplot(lizard, aes(x = total_length, y = weight, color = common_name, size = total_length)) + 
   geom_point(shape = 19) + 
   labs(title = "Plot Titik", x = "total_length", y = "weight") +
   theme_minimal()
 ```
-Chunk doang
 ```{r}
 library (gapminder)
 library (ggplot2)
 library (gganimate)
 ```
-Chunk doang
 ```{r}
 library(gapminder)
 data=gapminder
 data
 ```
-Chunk tok
 ```{r}
 library(gapminder)
 library(ggplot2)
@@ -379,7 +367,6 @@ gapminder_plot <- ggplot(
   labs(x = "GDP per capita", y = "Life expectancy")
 gapminder_plot
 ```
-Chunk tok
 ```{r}
 gapminder_plot <- ggplot(
   gapminder, 
